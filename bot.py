@@ -559,6 +559,7 @@ async def send_video(message: types.Message):
             ] + [[InlineKeyboardButton(text="✅ Tekshirish", callback_data="check_subs")]]
         )
         await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
+
 @dp.message(F.text == "32")
 async def send_video(message: types.Message):
     user_id = message.from_user.id
@@ -575,6 +576,45 @@ async def send_video(message: types.Message):
         )
         await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
 
+
+@dp.message(F.text == "33")
+async def send_video(message: types.Message):
+    user_id = message.from_user.id
+    
+    if await check_subs(user_id):  # Faqat obuna bo‘lganlarga javob qaytaradi
+        file_id = "BAACAgQAAxkBAAIIf2fR-UAcd6FmYnewIdMjuEtL6b_pAAIUDAACqUQRUG9LWpGZOSEsNgQ"
+        await message.answer_video(file_id, caption="🎬 O'zga Olam")
+    else:
+        await message.answer('telegram kanalga obuna boling')
+        markup = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [InlineKeyboardButton(text=f"🔗 {channel}", url=f"https://t.me/{channel[1:]}")] for channel in CHANNELS
+            ] + [[InlineKeyboardButton(text="✅ Tekshirish", callback_data="check_subs")]]
+        )
+        await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
+
+
+
+
+
+
+
+@dp.message(F.text == "35")
+async def send_video(message: types.Message):
+    user_id = message.from_user.id
+    
+    if await check_subs(user_id):  # Faqat obuna bo‘lganlarga javob qaytaradi
+        file_id = "BAACAgIAAxkBAAIIe2fR9quxvXcdq8zUmXZmlkFxVfAyAAITYgAC41WQSioFumr_pezGNgQ"
+        await message.answer_video(file_id, caption="🎬 Telba Qasoskor – Adolat yo‘lida kechgan jang! 🔥")
+
+    else:
+        await message.answer('telegram kanalga obuna boling')
+        markup = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [InlineKeyboardButton(text=f"🔗 {channel}", url=f"https://t.me/{channel[1:]}")] for channel in CHANNELS
+            ] + [[InlineKeyboardButton(text="✅ Tekshirish", callback_data="check_subs")]]
+        )
+        await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
 
 
 async def main():
