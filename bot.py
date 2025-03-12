@@ -4,7 +4,7 @@ from aiogram.filters import CommandStart
 import asyncio
 
 TOKEN = "6229528554:AAGUHlo0X1ffv0EzvWtwt-HzdzDlCcgyWf4"
-CHANNELS = ["@kinobeks", "@prokinoes"]  # Majburiy obuna kanallari
+CHANNELS = ["@kino_news25", "@kino_best24"]  # Majburiy obuna kanallari
 ADMINS = [2106641907]
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
@@ -94,13 +94,8 @@ async def send_video(message: types.Message):
     
     if await check_subs(user_id):  # Faqat obuna bo‘lganlarga javob qaytaradi
         file_id = "BAACAgIAAxkBAAIIXmfRkQe74Mttq_xUjlRKgZgy5clIAAIlZAACnkFZSHYxfacQG1U3NgQ"
-        await message.answer_video(file_id, caption="  🍿 | Nomi: Labirint 1\n
-                                                        🇺🇿 | Tili: O’zbek Tilida\n
-                                                        🗂 | Hajmi: 0.9Gb \n
-                                                        🎞 | Sifati: (1080p)\n
-                                                        🎭 | Janri:  #horor #fantastik\n
-                                                        👀 | Ko’rish katigoriyasi: 16+ \n
-                                                        ⏳ | Davomiyligi: 1s | 53 minut")
+        await message.answer_video(file_id, caption="🎬  Nomi: Labirint 1")
+                                                        
     else:
         await message.answer('telegram kanalga obuna boling')
         markup = InlineKeyboardMarkup(
