@@ -27,7 +27,7 @@ async def start_handler(message: types.Message):
         )
         await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
     else:
-        await message.answer("Xush kelibsiz! Botdan foydalanishingiz mumkin.")
+        await message.answer("Xush kelibsiz! Botdan foydalanishingiz mumkin. Kino kodini kiriting")
 
 @dp.callback_query(lambda call: call.data == "check_subs")
 async def check_subs_callback(call: types.CallbackQuery):
