@@ -100,7 +100,7 @@ async def send_video(message: types.Message):
                                                         🎞 | Sifati: (1080p)\n
                                                         🎭 | Janri:  #horor #fantastik\n
                                                         👀 | Ko’rish katigoriyasi: 16+ \n
-                                                        ⏳ | Davomiyligi: 1s | 53 minut"
+                                                        ⏳ | Davomiyligi: 1s | 53 minut")
     else:
         await message.answer('telegram kanalga obuna boling')
         markup = InlineKeyboardMarkup(
