@@ -71,10 +71,24 @@ async def get_file_id(message: types.Message):
     else:
         await message.answer("🚫 Ushbu buyruq faqat adminlar uchun mavjud!")
 
-
+@dp.message(F.text == "1")
+async def send_video(message: types.Message):
+    user_id = message.from_user.id
+    
+    if await check_subs(user_id):  # Faqat obuna bo‘lganlarga javob qaytaradi
+        file_id = "BAACAgIAAxkBAAIHx2fRKTCDyuvIluoudQ2T-ZbX0GixAAIKSgACk92xSBCUKpTxyUBSNgQ"
+        await message.answer_video(file_id, caption="🎬 Isquvar 4 Megre")
+    else:
+        await message.answer('telegram kanalga obuna boling')
+        # markup = InlineKeyboardMarkup(
+        #     inline_keyboard=[
+        #         [InlineKeyboardButton(text=f"🔗 {channel}", url=f"https://t.me/{channel[1:]}")] for channel in CHANNELS
+        #     ] + [[InlineKeyboardButton(text="✅ Tekshirish", callback_data="check_subs")]]
+        # )
+        # await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
 
 # 📌 2️⃣ Xabar "1" bo‘lsa, oldindan olingan `file_id` dagi videoni yuborish
-@dp.message(F.text == "1")
+@dp.message(F.text == "2")
 async def send_video(message: types.Message):
     user_id = message.from_user.id
     
@@ -90,22 +104,7 @@ async def send_video(message: types.Message):
         # )
         # await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
 
-@dp.message(F.text == "2")
-async def send_video(message: types.Message):
-    user_id = message.from_user.id
-    
-    if await check_subs(user_id):  # Faqat obuna bo‘lganlarga javob qaytaradi
-        file_id = "BAACAgQAAxkBAAIHa2fRIxCRTGQY-fs75Tivfs8Wta_qAAIvEAACCmLIUZP-1XCNJPUzNgQ"
-        await message.answer_video(file_id, caption="🎬 Bedlend ovchilar")
-    else:
-        await message.answer('telegram kanalga obuna boling')
-        # markup = InlineKeyboardMarkup(
-        #     inline_keyboard=[
-        #         [InlineKeyboardButton(text=f"🔗 {channel}", url=f"https://t.me/{channel[1:]}")] for channel in CHANNELS
-        #     ] + [[InlineKeyboardButton(text="✅ Tekshirish", callback_data="check_subs")]]
-        # )
-        # await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
-
+ 
 
 @dp.message(F.text == "3")
 async def send_video(message: types.Message):
@@ -543,13 +542,14 @@ async def send_video(message: types.Message):
         # )
         # await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
 
+
 @dp.message(F.text == "31")
 async def send_video(message: types.Message):
     user_id = message.from_user.id
     
     if await check_subs(user_id):  # Faqat obuna bo‘lganlarga javob qaytaradi
-        file_id = "BAACAgIAAxkBAAIHx2fRKTCDyuvIluoudQ2T-ZbX0GixAAIKSgACk92xSBCUKpTxyUBSNgQ"
-        await message.answer_video(file_id, caption="🎬 Isquvar 4 Megre")
+        file_id = "BAACAgQAAxkBAAIHa2fRIxCRTGQY-fs75Tivfs8Wta_qAAIvEAACCmLIUZP-1XCNJPUzNgQ"
+        await message.answer_video(file_id, caption="🎬 Bedlend ovchilar")
     else:
         await message.answer('telegram kanalga obuna boling')
         # markup = InlineKeyboardMarkup(
