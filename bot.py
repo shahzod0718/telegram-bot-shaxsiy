@@ -651,6 +651,29 @@ async def send_video(message: types.Message):
         await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
 
 
+@dp.message(F.text == "37")
+async def send_video(message: types.Message):
+    user_id = message.from_user.id
+    
+    if await check_subs(user_id):  # Faqat obuna bo‘lganlarga javob qaytaradi
+        file_id = "BAACAgIAAxkBAAIIrWfSz3EtHprZzkDsmxMY_MyKG5T1AAKDawAC41WQSjGglbCqKtY_NgQ"
+        await message.answer_video(file_id, caption="🎬 Creed (2015) 🎥 Tavsiya qilamiz!\n"
+        "⭐ Nega tomosha qilish kerak?\n"
+        "✅ Motivatsion va ilhomlantiruvchi film\n"
+        "✅ Bokschilar hayoti va kurash jarayonini haqqoniy yoritadi\n"
+        "✅ Klassik Rocky seriyasining davomchilari uchun ajoyib film\n"
+        " Agar siz sport, motivatsion hikoyalar va kuchli dramatik filmlarni yoqtirsangiz,\n"
+        " Creed aynan siz uchun! 💪🔥\n"
+        "@yaratgenbot")
+
+    else:
+        await message.answer('telegram kanalga obuna boling')
+        markup = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [InlineKeyboardButton(text=f"🔗 {channel}", url=f"https://t.me/{channel[1:]}")] for channel in CHANNELS
+            ] + [[InlineKeyboardButton(text="✅ Tekshirish", callback_data="check_subs")]]
+        )
+        await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
 
 
 
