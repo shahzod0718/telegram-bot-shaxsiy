@@ -677,6 +677,33 @@ async def send_video(message: types.Message):
 
 
 
+# 38,    39,    
+
+
+
+
+
+
+@dp.message(F.text == "40")
+async def send_video(message: types.Message):
+    user_id = message.from_user.id
+    
+    if await check_subs(user_id):  # Faqat obuna bo‘lganlarga javob qaytaradi
+        file_id = "BAACAgIAAxkBAAIJGmfWozR2359pN3peqWUJ4zVDVMB9AALFPAACrQ_hSAYHbb8vtP_vNgQ"
+        await message.answer_video(file_id, caption="🎬📽 Ko‘zlarim yo‘lingda (1991)\n"
+        "🎭 Janr: Romantik drama\n"
+        "@yaratgenbot")
+
+    else:
+        await message.answer('telegram kanalga obuna boling')
+        markup = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [InlineKeyboardButton(text=f"🔗 {channel}", url=f"https://t.me/{channel[1:]}")] for channel in CHANNELS
+            ] + [[InlineKeyboardButton(text="✅ Tekshirish", callback_data="check_subs")]]
+        )
+        await message.answer("Botdan foydalanish uchun quyidagi kanallarga obuna bo‘ling:", reply_markup=markup)
+
+
 
 async def main():
     print('bot ishladi....')
