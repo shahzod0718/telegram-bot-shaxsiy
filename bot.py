@@ -10,7 +10,7 @@ from aiogram.filters import CommandStart
 import asyncio
 
 # Token va sozlamalar
-TOKEN = "7930427840:AAFPLc9KYbftyNX0TuCnMMjsiGsqcTcVzHg"
+TOKEN = ""
 CHANNELS = ["@kino_news25"]
 ADMINS = [2106641907]
 
